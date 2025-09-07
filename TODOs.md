@@ -1,13 +1,13 @@
 # ✅ AgroGuardian – ToDo List (Workflow + Pantallas)
 
 ## 🌱 General
-- [✅] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
+- [x] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
 - [➖] Integrar librerías base:
     - [ ] `compose.material3`, `navigation`, `lifecycle`.
-    - [✅] `materialKolor` (tematización dinámica).
+    - [x] `materialKolor` (tematización dinámica).
     - [ ] `SQLDelight` (persistencia multiplataforma).
     - [ ] `Ktor` (sincronización remota cuando haya conexión).
-- [✅] Implementar **AppTheme** con colores:
+- [x] Implementar **AppTheme** con colores:
     - Primary: Verde hoja 🌿 (#388E3C).
     - Secondary: Turquesa 💧 (#009688).
     - Tertiary: Tierra 🌾 (#8D6E63).
