@@ -1,144 +1,219 @@
-# ✅ AgroGuardian – ToDo List (Workflow + Pantallas)
+# ✅ AgroGuardian – ToDo List (Alpha Development, 3 meses)
+
+> ⚠️ Nota: Eliminado QA para acelerar fase alpha. Solo gestión y desarrollo directo.
+
+---
 
 ## 🌱 General
-- [x] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
-- [➖] Integrar librerías base:
-    - [ ] `compose.material3`, `navigation`, `lifecycle`.
-    - [x] `materialKolor` (tematización dinámica).
-    - [ ] `SQLDelight` (persistencia multiplataforma).
-    - [ ] `Ktor` (sincronización remota cuando haya conexión).
-- [x] Implementar **AppTheme** con colores:
-    - Primary: Verde hoja 🌿 (#388E3C).
-    - Secondary: Turquesa 💧 (#009688).
-    - Tertiary: Tierra 🌾 (#8D6E63).
-    - Neutral: generados por MaterialKolor.
-- [ ] Establecer **Navigation Drawer lateral** como esquema principal de navegación.
-- [ ] Añadir **FAB global 💬** para abrir Chatbot desde cualquier pantalla.
+
+* [ ] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
+* [ ] Integrar librerías base:
+  * [ ] `compose.material3`, `navigation`, `lifecycle`.
+  * [ ] `materialKolor` (tematización dinámica).
+  * [ ] `SQLDelight` (persistencia multiplataforma).
+  * [ ] `Ktor` (sincronización remota cuando haya conexión).
+  * [ ] Librerías IA: `TensorFlow Lite`, `llama.cpp`/GGUF.
+* [ ] Implementar **AppTheme** con paleta de colores confirmada.
+* [ ] Establecer **Navigation Drawer lateral** como esquema principal.
+* [ ] Añadir **FAB global 💬** para abrir Chatbot desde cualquier pantalla.
 
 ---
 
 ## 🏠 Pantalla Inicio / Dashboard
-- [ ] Mostrar saludo contextual (ej. “Buenos días, Juan 🌞”).
-- [ ] Cards principales:
-    - [ ] 📷 **Diagnóstico visual** → acceso directo a cámara.
-    - [ ] 🌦️ **Clima local** → resumen de próximos días.
-    - [ ] 📊 **Estado de parcela** → prácticas recientes + alertas.
-- [ ] FAB: acción rápida para abrir Chatbot.
+
+* [ ] Mostrar saludo contextual dinámico.
+* [ ] Cards principales:
+
+  * [ ] 📷 **Diagnóstico visual**.
+  * [ ] 🌦️ **Clima local**.
+  * [ ] 📊 **Estado de parcela**.
+* [ ] FAB para abrir Chatbot.
 
 ---
 
 ## 📷 Diagnóstico Visual (CropGuardian)
-- [ ] Integrar cámara (CameraX en Android, AVFoundation en iOS).
-- [ ] Permitir captura de hoja/planta.
-- [ ] Procesar imagen con modelo local (TensorFlow Lite o GGUF vía llama.cpp).
-- [ ] Mostrar:
-    - Vista previa de foto.
-    - Resultado (ej. “Posible plaga: gusano cogollero”).
-    - Recomendación inmediata (ej. “Aplicar biofertilizante en 3 días”).
-- [ ] Guardar diagnóstico en base local (SQLDelight).
+
+* [ ] Integrar cámara (CameraX / AVFoundation).
+* [ ] Permitir captura de hoja/planta.
+* [ ] Procesar imagen con modelo local (TensorFlow Lite / GGUF).
+* [ ] UI: vista previa + resultado + recomendación.
+* [ ] Guardar diagnóstico en base local.
 
 ---
 
 ## 🧮 Planificación Agroecológica (AgriBrain)
-- [ ] Formulario simple:
-    - Cultivo actual (selector con íconos: 🌽 ☕ 🌾).
-    - Últimos cultivos sembrados (lista).
-    - Tipo de suelo (manual o detectado por GPS/registro).
-- [ ] Generar plan rotativo:
-    - Mostrar calendario estilo timeline (ej. “Mes 1–3: maíz 🌽 / Mes 4–6: frijol 🌱”).
-- [ ] Guardar y consultar planes históricos.
+
+* [ ] Formulario de cultivos (actual, anteriores, tipo de suelo).
+* [ ] Generar plan rotativo.
+* [ ] Mostrar calendario/timeline visual.
+* [ ] Guardar planes históricos.
 
 ---
 
 ## 🌦️ Asistente Climático
-- [ ] Conectar con APIs abiertas (NASA, Copernicus, FAO) vía Ktor.
-- [ ] Almacenar datos para consulta offline.
-- [ ] UI:
-    - Timeline próximos 7 días con iconos ☀️ 🌧️ ❄️.
-    - Tarjetas de alerta:
-        - “⚠️ Helada probable en 3 días.”
-        - “💧 Lluvia fuerte mañana, revise drenajes.”
-- [ ] Opción de enviar alerta al Chatbot → “qué hacer frente a esta situación”.
+
+* [ ] Conectar con APIs (OpenWeatherMap + NASA POWER).
+* [ ] Almacenar datos para consulta offline.
+* [ ] UI: timeline 7 días + alertas.
+* [ ] Enviar alerta al Chatbot para recomendaciones.
 
 ---
 
 ## 📊 Estado de Parcela
-- [ ] Listar diagnósticos previos.
-- [ ] Mostrar prácticas aplicadas (ej. riego, fertilización).
-- [ ] Visualización: gráfico simple (rendimiento, rotación aplicada).
-- [ ] Posibilidad de exportar resumen (CSV / PDF).
+
+* [ ] Listar diagnósticos previos.
+* [ ] Mostrar prácticas aplicadas.
+* [ ] Visualizar con gráficos simples.
+* [ ] Exportar resumen CSV/PDF.
 
 ---
 
 ## 🔁 Economía Circular
-- [ ] Lista de mercados y cooperativas cercanas.
-- [ ] Opciones:
-    - Publicar excedente 🌽 (formulario simple: qué, cuánto, precio).
-    - Buscar herramientas → listado por categorías.
-- [ ] Implementar gamificación:
-    - Badges por trueques, compost comunitario, participación en ferias.
+
+* [ ] Mapas con OpenStreetMap/MapLibre.
+* [ ] Lista de mercados, cooperativas, puntos de trueque.
+* [ ] Publicar excedentes (formulario simple).
+* [ ] Buscar herramientas e insumos.
+* [ ] Gamificación (badges por participación comunitaria).
 
 ---
 
 ## 💬 Chatbot Agrónomo
-- [ ] FAB global que abre chat desde cualquier pantalla.
-- [ ] UI estilo chat (similar a WhatsApp).
-- [ ] Entrada de texto + botón de dictado por voz.
-- [ ] Respuestas:
-    - Texto + iconos pequeños.
-    - Traducción a idiomas locales.
-    - Capacidad de adjuntar foto para diagnóstico.
-- [ ] Arquitectura híbrida:
-    - Modelo local ligero (GGUF/TFLite) siempre disponible.
-    - Si hay conexión estable, usar modelo remoto más grande.
-- [ ] Integrar **memoria externa**:
-    - Recordar datos persistentes (cultivo, suelo, clima local).
-    - Resumir interacciones largas para mantener contexto sin sobrecargar el dispositivo.
+
+* [ ] FAB global → acceso rápido.
+* [ ] UI estilo chat (texto + voz).
+* [ ] Entrada de texto + dictado por voz.
+* [ ] Respuestas claras + íconos.
+* [ ] Soporte multilingüe + traducciones locales.
+* [ ] Adjuntar foto para diagnóstico.
+* [ ] Arquitectura híbrida: modelo local + remoto.
+* [ ] Memoria externa: persistencia de contexto y resúmenes.
+
+---
+
+## 📈 Indicadores de Salud del Suelo
+
+* [ ] Cálculo de índice de regeneración.
+* [ ] Visualización tipo semáforo.
+
+---
+
+## 🐛 Seguimiento de Plagas y Enfermedades
+
+* [ ] Registro manual de plagas.
+* [ ] Integrar detección por cámara.
+* [ ] Alertas comunitarias en región.
+
+---
+
+## 💧 Gestión del Agua
+
+* [ ] Calcular necesidades de riego (evapotranspiración + clima).
+* [ ] Registro de riegos.
+* [ ] Consejos de eficiencia hídrica.
+
+---
+
+## 👥 Comunidad y Colaboración
+
+* [ ] Foros comunitarios simples.
+* [ ] Chat regional.
+* [ ] Rankings cooperativas.
+
+---
+
+## 📑 Economía Agrícola
+
+* [ ] Registro de costos e ingresos.
+* [ ] Reportes simples PDF/CSV.
+
+---
+
+## 🛰️ Datos Satelitales Ligeros
+
+* [ ] Integrar NDVI básico (mapa coloreado).
+* [ ] Mostrar vigor de cultivos (verde/rojo).
+
+---
+
+## 🎓 Módulo Educativo Integrado
+
+* [ ] Microcursos cortos.
+* [ ] Recomendaciones adaptadas a cultivos registrados.
+
+---
+
+## 📦 Gestión de Inventarios
+
+* [ ] Registrar semillas, herramientas, bioinsumos.
+* [ ] Alertas de agotamiento.
+
+---
+
+## 🚜 Mantenimiento de Maquinaria
+
+* [ ] Recordatorios de mantenimiento preventivo.
+* [ ] Guías básicas de uso/mantenimiento.
+
+---
+
+## 🧾 Trazabilidad y Certificaciones
+
+* [ ] Registro de prácticas sostenibles.
+* [ ] Generación de reportes para certificación.
+
+---
+
+## 📅 Calendario Agrícola Integrado
+
+* [ ] Vista mensual/semanal de tareas.
+* [ ] Recordatorios automáticos.
+
+---
+
+## 📷 Bitácora Multimedia
+
+* [ ] Guardar fotos y notas por fecha.
+* [ ] Comparar evolución de cultivos.
+
+---
+
+## ⚖️ Comparador de Prácticas Agrícolas
+
+* [ ] Registrar dos métodos distintos.
+* [ ] Comparar resultados en rendimiento, costos y sostenibilidad.
 
 ---
 
 ## ⚙️ Configuración
-- [ ] Preferencias: idioma, tema (oscuro/claro), conexión (offline/online).
-- [ ] Control de datos → permitir exportar/borrar información personal.
-- [ ] Selección de modelo IA (tiny local o extendido descargable).
+
+* [ ] Preferencias de idioma, tema, conexión.
+* [ ] Control de datos (exportar/borrar).
+* [ ] Selección de modelo IA (local o descargable).
 
 ---
 
 ## 📚 Guía AgroGuardian
-- [ ] Tutorial inicial paso a paso.
-- [ ] Recomendaciones sobre prácticas regenerativas.
-- [ ] FAQ básicas (ej. “cómo tomar foto para diagnóstico”).
+
+* [ ] Tutorial inicial paso a paso.
+* [ ] Recomendaciones prácticas regenerativas.
+* [ ] FAQ básicas.
 
 ---
 
 ## ℹ️ Acerca de
-- [ ] Info del proyecto, versión de la app.
-- [ ] Créditos (FAO, ONGs, universidades, desarrolladores).
-- [ ] Licencia (open source).
+
+* [ ] Info del proyecto.
+* [ ] Créditos y licencias.
+* [ ] Versión de la app.
 
 ---
 
 ## 🧩 Workflow Técnico
-- [ ] **Orchestrator** (commonMain):
-    - Selecciona nodos según query (ej. diagnóstico → modelo visión + LLM local).
-    - Si hay red → extiende workflow con modelo remoto.
-- [ ] **Model Manager**:
-    - APK incluye modelo tiny.
-    - Opción de descargar modelo más grande vía WiFi.
-- [ ] **Memory Manager**:
-    - Guardar contexto a corto/largo plazo.
-    - Usar resúmenes como contexto para LLM pequeño.
-- [ ] **Sync Manager**:
-    - Cuando hay conexión, sincronizar diagnósticos y planes con nube.
-    - Compartir datos anonimizados en “data commons” rurales.
+
+* [ ] Orchestrator: selección de nodos IA.
+* [ ] Model Manager: tiny en APK + opción descargable.
+* [ ] Memory Manager: resúmenes y persistencia.
+* [ ] Sync Manager: sincronización y data commons.
 
 ---
-
-## 🔬 QA y CI/CD
-- [ ] Configurar **tests unitarios** en `commonTest`.
-- [ ] Tests de UI con Compose Preview y Espresso/KMP.
-- [ ] Pipeline CI (GitHub Actions o GitLab CI):
-    - Compilación Android e iOS.
-    - Lint + Detekt.
-    - Generación de APK/AAB y .ipa para pruebas.
-- [ ] Distribución en canales cerrados (ej. Firebase App Distribution, TestFlight).
