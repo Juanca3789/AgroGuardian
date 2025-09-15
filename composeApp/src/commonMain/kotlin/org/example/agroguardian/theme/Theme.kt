@@ -12,6 +12,7 @@ import com.materialkolor.rememberDynamicMaterialThemeState
 @Composable
 fun AgroGuardianTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
+    useAccessibleFont: Boolean = false,
     content: @Composable () -> Unit,
 ) {
     val dynamicThemeState = rememberDynamicMaterialThemeState(
@@ -22,10 +23,12 @@ fun AgroGuardianTheme(
         tertiary = Tertiary,
         neutral = Neutral,
     )
-    
+    val typography = if (useAccessibleFont) accessibleTypography() else agroGuardianTypography()
+
     DynamicMaterialTheme(
         state = dynamicThemeState,
         animate = true,
         content = content,
+        typography = typography
     )
 }

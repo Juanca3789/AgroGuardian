@@ -6,16 +6,16 @@
 
 ## 🌱 General
 
-* [ ] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
-* [ ] Integrar librerías base:
-  * [ ] `compose.material3`, `navigation`, `lifecycle`.
-  * [ ] `materialKolor` (tematización dinámica).
+* [x] Configurar **proyecto KMM con Compose Multiplatform** (Android + iOS).
+* [➖] Integrar librerías base:
+  * [x] `compose.material3`, `navigation`, `lifecycle`.
+  * [x] `materialKolor` (tematización dinámica).
   * [ ] `SQLDelight` (persistencia multiplataforma).
   * [ ] `Ktor` (sincronización remota cuando haya conexión).
   * [ ] Librerías IA: `TensorFlow Lite`, `llama.cpp`/GGUF.
-* [ ] Implementar **AppTheme** con paleta de colores confirmada.
-* [ ] Establecer **Navigation Drawer lateral** como esquema principal.
-* [ ] Añadir **FAB global 💬** para abrir Chatbot desde cualquier pantalla.
+* [x] Implementar **AppTheme** con paleta de colores confirmada, fuentes e iconos de material3.
+* [x] Establecer **Navigation Drawer lateral** como esquema principal.
+* [x] Añadir **FAB global 💬** para abrir Chatbot desde cualquier pantalla.
 
 ---
 
