@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        val driver = AndroidSqliteDriver(AppDatabase.Schema, context = this, name = null)
+        val driver = AndroidSqliteDriver(AppDatabase.Schema, context = this, name = "AgroGuardian.db")
         val database = AppDatabase(driver)
         val weatherRepository = AndroidWeatherRepository()
 

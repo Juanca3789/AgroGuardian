@@ -64,17 +64,22 @@ fun WeatherAndWaterInterface(
                 ),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                contentAlignment = Alignment.Center
-            ) {
-                WeatherSummaryCard(currentTemp, condition)
+            if(hourlyTemps.isEmpty()){
+                CircularProgressIndicator()
             }
+            else {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    contentAlignment = Alignment.Center
+                ) {
+                    WeatherSummaryCard(currentTemp, condition)
+                }
 
-            Box(modifier = Modifier.weight(2f)) {
-                GroupedHourlyForecast(hourlyTemps)
+                Box(modifier = Modifier.weight(2f)) {
+                    GroupedHourlyForecast(hourlyTemps)
+                }
             }
         }
     }
