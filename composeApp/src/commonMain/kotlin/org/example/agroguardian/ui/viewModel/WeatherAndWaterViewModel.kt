@@ -1,4 +1,4 @@
-package org.example.agroguardian.ui.viewModel
+package org.example.agroguardian.ui.viewmodel
 
 import WeatherResponse
 import androidx.lifecycle.ViewModel
@@ -11,6 +11,7 @@ import org.example.agroguardian.data.db.entity.WeatherEntity
 import org.example.agroguardian.data.repository.WeatherRepository
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
+import kotlin.time.Duration.Companion.milliseconds
 
 data class HourBlock(
     val startTime: String,
@@ -38,18 +39,31 @@ class WeatherAndWaterViewModel(
     init {
         weatherDb?.let { db ->
             viewModelScope.launch {
+                val initial = db.getAll()
+                if (initial.isNotEmpty()) {
+                    _weatherState.value = mapToState(initial)
+                }
+            }
+
+            viewModelScope.launch {
                 db.observeAll()
                     .map { entities -> mapToState(entities) }
-                    .collect { _weatherState.value = it }
+                    .collect { newState ->
+                        if (newState.hourlyTemps.isNotEmpty()) {
+                            _weatherState.value = newState
+                        } else if (_weatherState.value.hourlyTemps.isNotEmpty()) {
+                            _weatherState.value = _weatherState.value
+                        }
+                    }
             }
         }
 
         if (weatherRepository != null && weatherDb != null) {
             viewModelScope.launch {
                 while (true) {
-                    try {
-                        val location = getCurrentLocation()
-                        if (location != null) {
+                    val location = getCurrentLocation()
+                    if (location != null) {
+                        try {
                             val (lat, lon) = location
                             val response = weatherRepository.getWeather(
                                 latitude = lat,
@@ -57,10 +71,14 @@ class WeatherAndWaterViewModel(
                                 variables = listOf("temperature_2m", "relative_humidity_2m", "precipitation", "weathercode")
                             )
                             val entities = transformResponseToEntities(response)
-                            entities.forEach { weatherDb.insert(it) }
+                            if (entities.isNotEmpty()) {
+                                entities.forEach { weatherDb.insert(it) }
+                            }
+                        } catch (_: Exception) {
                         }
-                    } catch (_: Exception) {}
-                    delay(60_000)
+                    }
+
+                    delayUntilNextHour()
                 }
             }
         }
@@ -121,5 +139,14 @@ class WeatherAndWaterViewModel(
         80, 81, 82 -> "showers"
         95 -> "thunderstorm"
         else -> "generated"
+    }
+
+    @OptIn(ExperimentalTime::class)
+    private suspend fun delayUntilNextHour() {
+        val now = Clock.System.now()
+        val millis = now.toEpochMilliseconds()
+        val nextHourMillis = ((millis / 3600000) + 1) * 3600000
+        val delayDuration = (nextHourMillis - millis).milliseconds
+        delay(delayDuration)
     }
 }

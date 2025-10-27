@@ -51,6 +51,7 @@ kotlin {
             implementation(libs.ktor.client.serialization.json)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.sqldelight.coroutines)
+            implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

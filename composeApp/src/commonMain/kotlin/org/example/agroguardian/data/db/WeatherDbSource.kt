@@ -37,6 +37,10 @@ class WeatherDbSource(
         }
     }
 
+    fun getAll(): List<WeatherEntity> =
+        queries.selectAll().executeAsList().map { weather -> weather.toEntity() }
+
+
     suspend fun deleteAll() {
         withContext(Dispatchers.IO) {
             queries.deleteAll()
