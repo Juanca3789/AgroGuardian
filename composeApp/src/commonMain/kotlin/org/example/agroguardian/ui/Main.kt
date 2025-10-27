@@ -39,6 +39,7 @@ import org.example.agroguardian.data.state.NavigationScreen
 import org.example.agroguardian.data.state.SpecialRoutes
 import org.example.agroguardian.theme.AgroGuardianTheme
 import org.example.agroguardian.ui.screen.HomeScreen
+import org.example.agroguardian.ui.screen.WeatherAndWaterScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 val navigationScreens: List<NavigationScreen> = listOf(
@@ -142,6 +143,7 @@ fun Main(
                                 scope.launch {
                                     drawerState.close()
                                 }
+                                navController.navigate(selectedScreen.name)
                             }
                         )
                     }
@@ -190,7 +192,7 @@ fun Main(
 
                             }
                             NavigationScreen.WeatherAndWater -> {
-
+                                WeatherAndWaterScreen()
                             }
                         }
                     }
